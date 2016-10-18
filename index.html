@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="listaTelefonica" lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista Telefônica</title>
+  <link rel="stylesheet" href="libs/bootstrap/bootstrap.css" type="text/css">
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+  <script src="libs/angular/angular.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/controllers/listaTelefonicaCtrl.js"></script>
+  <script src="js/services/contatosAPIService.js"></script>
+  <script src="js/services/operadorasAPIService.js"></script>
+</head>
+<body ng-controller="listaTelefonicaCtrl">
+  <div class="jumbotron">
+  <input class="form-control" type="text" ng-model="citerioDeBusca">
+    <table class="table table-striped">
+      <tr>
+        <th></th>
+        <th><a ng-click="ordernarPor('nome')" href="">Nome</a></th>
+        <th><a ng-click="ordernarPor('telefone')" href="">Telefone</a></th>
+        <th>Operadora</th>
+        <th>Data</th>
+      </tr>
+      <tr ng-class="{selecionado: contato.selecionado}" ng-repeat="contato in contatos | filter:citerioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+        <td><input type="checkbox" ng-model="contato.selecionado"></td>
+        <td>{{contato.nome}}</td>
+        <td>{{contato.telefone}}</td>
+        <td>{{contato.operadora.nome}}</td>
+        <td>{{contato.data | date:'dd/MM/yyyy'}}</td>
+      </tr>
+    </table>
+    <hr>
+    <form name="contatoForm">
+      <input class="form-control" type="text" ng-model="contato.nome" ng-required="true">
+      <input class="form-control" type="text" ng-model="contato.telefone">
+      <select class="form-control" ng-model="contato.operadora" ng-options="operadora.nome for operadora in operadoras | orderBy:'nome'">
+        <option value="">Selecione</option>
+      </select>
+    </form>
+    <button class="btn btn-primary btn-block" ng-click="adicionarContato(contato)" >Add</button>
+    <button class="btn btn-danger btn-block" ng-click="apagarContatos(contatos)" ng-disabled="!isContatoSelecionado(contatos)">Delete</button>
+  </div>
+</body>
+</html>

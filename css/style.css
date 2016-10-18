@@ -1,0 +1,11 @@
+  .jumbotron{
+    width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .form-control{
+    margin-bottom: 20px;
+  }
+  .selecionado{
+    font-weight: bold;
+  }
