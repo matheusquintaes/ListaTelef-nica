@@ -10,11 +10,20 @@
   <script src="js/controllers/listaTelefonicaCtrl.js"></script>
   <script src="js/services/contatosAPIService.js"></script>
   <script src="js/services/operadorasAPIService.js"></script>
+  <script src="js/directives/uiAccordionDirective.js"></script>
 </head>
 <body ng-controller="listaTelefonicaCtrl">
   <div class="jumbotron">
+  <ui-accordions>
+    <ui-accordion title="Accordion 1">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam recusandae dolores molestias eos commodi deserunt distinctio voluptas! Quibusdam accusamus, provident! Obcaecati deleniti ut quam iste autem recusandae corporis iure dignissimos!
+    </ui-accordion>
+    <ui-accordion title="Accordion 2">
+    </ui-accordion>
+  </ui-accordions>
+  <br>
   <input class="form-control" type="text" ng-model="citerioDeBusca">
-    <h1>Lista Telefônica</h1>
+    <!-- <h1>Lista Telefônica</h1> -->
     <table class="table table-striped">
       <tr>
         <th></th>
