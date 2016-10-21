@@ -29,7 +29,7 @@
         <th></th>
         <th><a ng-click="ordernarPor('nome')" href="">Nome</a></th>
         <th><a ng-click="ordernarPor('telefone')" href="">Telefone</a></th>
-        <th>Operadora</th>
+        <th>Operadora.</th>
         <th>Data</th>
       </tr>
       <tr ng-class="{selecionado: contato.selecionado}" ng-repeat="contato in contatos | filter:citerioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
